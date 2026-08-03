@@ -14,6 +14,11 @@
 </head>
 <body>
 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Top Navigation -->
     <nav class="v3-navbar">
         <div class="v3-nav-container">
@@ -55,7 +60,7 @@
                 
                 <div class="v3-about-content">
                     <h2>I'm Shweta Jadhav</h2>
-                    <p>I'm a graphic designer who specializes in progressive brand development that helps companies and entrepreneurs achieve their business goals. I've been professionally designing logos, print materials, packaging, and branding projects for over 3 years.</p>
+                    <p>I'm a graphic designer who specializes in progressive brand development that helps companies and entrepreneurs achieve their business goals. I've been professionally designing logos, print materials, packaging, and branding projects for over 6+ years.</p>
                     <p>Based in Pune, Maharashtra, I bring a unique visual storytelling approach to every project, ensuring your brand stands out in a crowded market.</p>
                     
                     <a href="contact.html" class="v3-btn" style="margin-top: 20px;">Hire Me</a>
@@ -125,6 +130,15 @@
                 links.style.background = '#09090b';
                 links.style.padding = '20px';
             }
+        });
+
+        // Preloader Logic
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
         });
     </script>
 </body>

@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/v3-redesign.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <!-- Top Navigation -->
     <nav class="v3-navbar">
         <div class="v3-nav-container">
@@ -485,6 +489,15 @@
         `;
         document.head.appendChild(style);
         filterSelection("all");
+
+        // Preloader Logic
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
     </script>
 </body>
 </html>
