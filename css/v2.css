@@ -1,55 +1,92 @@
-/* ============================================
-   Shweta Portfolio v2.0 — Enhanced Stylesheet
-   Same #9e0042 magenta brand colour
-   ============================================ */
+/* ============================================================
+   Shweta Portfolio v2.0 — Premium Graphic Designer Edition
+   Brand: Deep Magenta #9e0042 | Accent: Rose Gold #d4956a
+   Background: Warm Cream #f5f0eb
+   ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
 
-/* ────────────────────────────
-   CSS Variables
-──────────────────────────── */
+/* ────────────────────────────────────────
+   CSS VARIABLES — Design System
+──────────────────────────────────────── */
 :root {
-    --brand:    #9e0042;
-    --brand-dk: #7a0034;
-    --brand-lt: #c4005a;
-    --brand-bg: rgba(158, 0, 66, 0.08);
-    --card-bg:  #ffffff;
-    --text:     #1a1a2e;
-    --text-muted: #666;
-    --radius:   16px;
-    --radius-sm: 8px;
-    --shadow:   0 8px 30px rgba(0,0,0,0.10);
-    --shadow-hover: 0 16px 40px rgba(0,0,0,0.16);
-    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --brand:        #9e0042;
+    --brand-dk:     #7a0034;
+    --brand-lt:     #c4005a;
+    --brand-glow:   rgba(158, 0, 66, 0.15);
+    --accent:       #d4956a;       /* warm rose gold */
+    --accent-lt:    #e8b894;
+    --bg:           #f5f0eb;       /* warm cream */
+    --bg-alt:       #eee8e0;       /* slightly deeper cream */
+    --card-bg:      #ffffff;
+    --card-tinted:  #fdf9f6;
+    --text:         #1a1410;       /* warm near-black */
+    --text-mid:     #4a3d33;
+    --text-muted:   #8a7a6e;
+    --border:       rgba(158, 0, 66, 0.12);
+    --border-light: rgba(0,0,0,0.07);
+    --radius:       20px;
+    --radius-sm:    10px;
+    --radius-xs:    6px;
+    --shadow-sm:    0 2px 12px rgba(30,10,0,0.07);
+    --shadow:       0 8px 32px rgba(30,10,0,0.10);
+    --shadow-md:    0 12px 40px rgba(30,10,0,0.14);
+    --shadow-hover: 0 20px 50px rgba(30,10,0,0.18);
+    --shadow-brand: 0 8px 28px rgba(158,0,66,0.25);
+    --transition:   all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', sans-serif;
+    --font-title:   'Oswald', sans-serif;
 }
 
-/* ────────────────────────────
-   GLOBAL: sections need top padding
-   because sidebar is 80px wide
-──────────────────────────── */
+/* ────────────────────────────────────────
+   GLOBAL RESET & BODY
+──────────────────────────────────────── */
+body {
+    background: var(--bg) !important;
+    font-family: var(--font-body) !important;
+    color: var(--text) !important;
+}
+
+/* override the old grey background */
+#main-wrapper {
+    background: var(--bg) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    color: var(--text);
+}
+
+p, .des-text {
+    font-family: var(--font-body);
+    color: var(--text-mid);
+}
+
+/* Sections top padding — sidebar is 80px wide */
 .banner,
 .v2-about,
 .v2-services,
 .v2-portfolio,
 .v2-contact {
-    padding-top: 50px;
-    padding-bottom: 60px;
+    padding-top: 56px;
+    padding-bottom: 72px;
+    background: var(--bg);
 }
 
-/* ────────────────────────────
-   BANNER ROW — fix height / padding
-──────────────────────────── */
-.banner .container > .row {
-    min-height: calc(100vh - 50px);
-    height: auto;
-    padding: 60px 0 60px;
-    display: flex;
-    align-items: center;
+/* Alternate section tint */
+.v2-about,
+.v2-contact {
+    background: var(--bg-alt);
 }
 
-/* ────────────────────────────
-   SIDE NAV — v2 Polish
-──────────────────────────── */
+/* ────────────────────────────────────────
+   SIDE NAV — Polish
+──────────────────────────────────────── */
+.side-nav {
+    background: var(--text) !important;  /* deep warm black nav */
+}
+
 .side-nav ul li a {
     position: relative;
     transition: var(--transition);
@@ -63,7 +100,7 @@
     transform: translateY(-50%) scaleY(0);
     width: 3px;
     height: 70%;
-    background: var(--brand);
+    background: var(--accent);
     border-radius: 3px;
     transition: transform 0.25s ease;
 }
@@ -79,70 +116,121 @@
 
 .side-nav ul li a:hover i,
 .side-nav ul li a.active i {
-    color: var(--brand);
-    transform: scale(1.15);
-}
-
-.social-item ul li a {
-    transition: var(--transition);
+    color: var(--accent);
+    transform: scale(1.2);
 }
 
 .social-item ul li a:hover {
-    color: var(--brand);
+    color: var(--accent);
     transform: translateY(-3px);
 }
 
-/* ────────────────────────────
-   HOME — Banner v2 Text
-──────────────────────────── */
+/* ────────────────────────────────────────
+   BANNER — Hero Section
+──────────────────────────────────────── */
+.banner {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background blobs */
+.banner::before,
+.banner::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.banner::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(158,0,66,0.06) 0%, transparent 70%);
+    top: -100px;
+    right: 100px;
+}
+
+.banner::after {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212,149,106,0.08) 0%, transparent 70%);
+    bottom: -50px;
+    left: 150px;
+}
+
+.banner .container > .row {
+    min-height: calc(100vh - 56px);
+    height: auto;
+    padding: 60px 0 60px;
+    display: flex;
+    align-items: center;
+}
 
 /* DateTime badge */
 .v2-datetime-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--card-bg);
-    border: 1.5px solid var(--brand);
+    background: rgba(158,0,66,0.06);
+    border: 1px solid var(--border);
     color: var(--brand);
-    padding: 6px 16px;
+    padding: 7px 18px;
     border-radius: 50px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-    margin-bottom: 18px;
-    box-shadow: 0 2px 12px rgba(158,0,66,0.12);
+    font-family: var(--font-body);
+    margin-bottom: 22px;
+    letter-spacing: 0.5px;
+}
+
+.v2-datetime-badge i {
+    font-size: 11px;
+    opacity: 0.7;
 }
 
 /* Greeting */
 .v2-greeting {
-    font-size: 16px;
+    font-family: var(--font-body);
+    font-size: 13px;
     font-weight: 600;
-    color: var(--brand);
-    margin-bottom: 4px;
-    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 3px;
     text-transform: uppercase;
 }
 
 /* Name */
 .v2-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(38px, 5vw, 64px);
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5.5vw, 72px);
     font-weight: 700;
     color: var(--text);
-    line-height: 1.1;
-    margin-bottom: 12px;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
 }
 
 /* Tagline with typing */
 .v2-tagline {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(18px, 2.8vw, 26px);
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 18px;
+    font-family: var(--font-body);
+    font-size: clamp(16px, 2.2vw, 22px);
+    font-weight: 400;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+    letter-spacing: 0;
+}
+
+.v2-tagline strong {
+    font-weight: 700;
+    color: var(--text);
 }
 
 .v2-typed {
     color: var(--brand);
+    font-weight: 700;
+    font-style: italic;
+    font-family: var(--font-display);
+    font-size: 1.15em;
 }
 
 .v2-cursor {
@@ -158,11 +246,12 @@
 
 /* Description */
 .v2-desc {
-    font-size: 14.5px;
+    font-family: var(--font-body);
+    font-size: 15px;
     color: var(--text-muted);
-    max-width: 460px;
-    margin-bottom: 28px;
-    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 32px;
+    line-height: 1.85;
 }
 
 /* CTA Buttons */
@@ -170,43 +259,57 @@
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
-    margin-bottom: 36px;
+    margin-bottom: 44px;
     align-items: center;
 }
 
+/* Primary solid button */
 .v2-btn-primary {
     background: var(--brand) !important;
     color: #fff !important;
     border: 2px solid var(--brand) !important;
-    padding: 12px 32px !important;
+    padding: 13px 30px !important;
     border-radius: 50px !important;
     font-weight: 600 !important;
-    font-size: 14px !important;
-    letter-spacing: 0.5px;
+    font-size: 13.5px !important;
+    font-family: var(--font-body) !important;
+    letter-spacing: 0.3px;
     transition: var(--transition) !important;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.v2-btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    border-radius: inherit;
 }
 
 .v2-btn-primary:hover {
     background: var(--brand-dk) !important;
     border-color: var(--brand-dk) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(158,0,66,0.3);
+    transform: translateY(-3px) !important;
+    box-shadow: var(--shadow-brand) !important;
     color: #fff !important;
 }
 
+/* Outline / secondary button */
 .v2-btn-outline {
     background: transparent;
     color: var(--brand);
     border: 2px solid var(--brand);
-    padding: 12px 32px;
+    padding: 13px 30px;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+    font-size: 13.5px;
+    font-family: var(--font-body);
+    letter-spacing: 0.3px;
     transition: var(--transition);
     text-decoration: none;
     display: inline-flex;
@@ -217,8 +320,8 @@
 .v2-btn-outline:hover {
     background: var(--brand);
     color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(158,0,66,0.25);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-brand);
 }
 
 /* Stats row */
@@ -233,7 +336,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 22px;
 }
 
 .v2-stat:first-child {
@@ -241,32 +344,33 @@
 }
 
 .v2-stat-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: 28px;
+    font-family: var(--font-display);
+    font-size: 34px;
     font-weight: 700;
     color: var(--brand);
     line-height: 1;
 }
 
 .v2-stat-label {
-    font-size: 11px;
+    font-family: var(--font-body);
+    font-size: 10px;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 3px;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
     white-space: nowrap;
 }
 
 .v2-stat-divider {
     width: 1px;
     height: 36px;
-    background: #ccc;
+    background: rgba(158,0,66,0.2);
     flex-shrink: 0;
 }
 
-/* ────────────────────────────
-   PROFILE wrapper
-──────────────────────────── */
+/* ────────────────────────────────────────
+   PROFILE WRAPPER
+──────────────────────────────────────── */
 .v2-profile-wrapper {
     position: relative;
     display: flex;
@@ -275,15 +379,29 @@
     padding: 30px 20px;
 }
 
+/* Spinning dashed ring */
 .v2-profile-ring {
     position: absolute;
     width: 100%;
-    max-width: 380px;
+    max-width: 390px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    border: 2px dashed rgba(158,0,66,0.3);
-    animation: spin 18s linear infinite;
+    border: 1.5px dashed rgba(158,0,66,0.25);
+    animation: spin 22s linear infinite;
     pointer-events: none;
+}
+
+/* Second smaller ring */
+.v2-profile-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 82%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid rgba(212,149,106,0.2);
+    animation: spin 12s linear infinite reverse;
+    pointer-events: none;
+    z-index: 0;
 }
 
 @keyframes spin {
@@ -291,7 +409,7 @@
     to   { transform: rotate(360deg); }
 }
 
-/* Profile image circle */
+/* Profile image */
 .v2-profile-wrapper .banner-profile {
     width: 100%;
     max-width: 340px;
@@ -299,7 +417,7 @@
     height: auto;
     border-radius: 50%;
     border: 5px solid var(--brand);
-    box-shadow: 0 12px 30px rgba(158,0,66,0.22);
+    box-shadow: var(--shadow-brand), 0 0 0 8px rgba(158,0,66,0.06);
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -317,16 +435,17 @@
     position: absolute;
     bottom: 20px;
     right: 0;
-    background: var(--brand);
+    background: linear-gradient(135deg, var(--brand), var(--brand-lt));
     color: #fff;
     border-radius: 50px;
-    padding: 8px 16px;
+    padding: 9px 18px;
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 12px;
     font-weight: 600;
-    box-shadow: var(--shadow);
+    font-family: var(--font-body);
+    box-shadow: var(--shadow-brand);
     white-space: nowrap;
     z-index: 2;
 }
@@ -335,55 +454,60 @@
     font-size: 13px;
 }
 
-/* ────────────────────────────
-   PAGE HEADER (shared)
-──────────────────────────── */
+/* ────────────────────────────────────────
+   PAGE HEADER (shared across pages)
+──────────────────────────────────────── */
 .v2-page-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 56px;
+    position: relative;
 }
 
 .v2-section-tag {
     display: inline-block;
-    background: var(--brand-bg);
+    background: rgba(158,0,66,0.07);
     color: var(--brand);
-    border: 1px solid rgba(158,0,66,0.25);
-    padding: 5px 18px;
+    border: 1px solid var(--border);
+    padding: 6px 20px;
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
+    font-family: var(--font-body);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
 }
 
 .v2-page-header h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(32px, 5vw, 48px);
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 54px);
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
 }
 
 .v2-title-line {
-    width: 60px;
-    height: 4px;
-    background: var(--brand);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand), var(--accent));
     border-radius: 2px;
-    margin: 0 auto 18px;
+    margin: 0 auto 20px;
 }
 
 .v2-page-desc {
-    max-width: 540px;
+    max-width: 500px;
     margin: 0 auto;
     color: var(--text-muted);
+    font-family: var(--font-body);
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.8;
 }
 
-/* ────────────────────────────
-   ABOUT v2
-──────────────────────────── */
+/* ────────────────────────────────────────
+   ABOUT PAGE
+──────────────────────────────────────── */
 .v2-about-profile {
     position: relative;
     display: flex;
@@ -399,63 +523,87 @@
     object-fit: cover;
     object-position: center 15%;
     border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border: 4px solid #fff;
+    box-shadow: var(--shadow-md);
+    border: none;
     display: block;
+    filter: saturate(1.05);
 }
 
+/* Decorative corner accent on about image */
+.v2-about-profile::before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 200px);
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(158,0,66,0.08), rgba(212,149,106,0.08));
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+/* Experience badge */
 .v2-exp-badge {
     position: absolute;
-    bottom: 16px;
-    right: 10px;
-    background: var(--brand);
+    bottom: 20px;
+    right: calc(50% - 230px);
+    background: linear-gradient(135deg, var(--brand), var(--brand-lt));
     color: #fff;
     border-radius: var(--radius-sm);
-    padding: 12px 16px;
+    padding: 14px 18px;
     text-align: center;
     line-height: 1.2;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-brand);
 }
 
 .v2-exp-badge strong {
     display: block;
-    font-family: 'Oswald', sans-serif;
-    font-size: 26px;
+    font-family: var(--font-display);
+    font-size: 28px;
     font-weight: 700;
 }
 
 .v2-exp-badge span {
     font-size: 11px;
+    font-family: var(--font-body);
     opacity: 0.9;
+    letter-spacing: 0.5px;
 }
 
+/* About text section */
 .v2-about-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(26px, 4vw, 36px);
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 40px);
     font-weight: 700;
     color: var(--text);
     margin-bottom: 4px;
+    letter-spacing: -0.5px;
 }
 
 .v2-about-role {
-    color: var(--brand);
+    color: var(--accent);
+    font-family: var(--font-body);
     font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .v2-about-text .des-text {
     margin-bottom: 28px;
     color: var(--text-muted);
-    line-height: 1.8;
+    line-height: 1.85;
+    font-family: var(--font-body);
+    font-size: 14.5px;
 }
 
 /* Info grid */
 .v2-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 28px;
 }
 
@@ -463,54 +611,59 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: var(--card-bg);
+    background: var(--card-tinted);
     padding: 12px 14px;
     border-radius: var(--radius-sm);
     border-left: 3px solid var(--brand);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .v2-info-item:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
+    border-left-color: var(--accent);
 }
 
 .v2-info-item i {
     color: var(--brand);
-    font-size: 16px;
-    margin-top: 2px;
+    font-size: 15px;
+    margin-top: 3px;
     flex-shrink: 0;
 }
 
 .v2-info-label {
     display: block;
-    font-size: 10px;
+    font-size: 9.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: var(--text-muted);
-    margin-bottom: 1px;
+    font-family: var(--font-body);
+    margin-bottom: 2px;
 }
 
 .v2-info-value {
     display: block;
     font-size: 13px;
     font-weight: 600;
+    font-family: var(--font-body);
     color: var(--text);
     word-break: break-word;
 }
 
 /* Skills */
 .v2-skills {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
 }
 
 .v2-skills-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
 }
 
 .v2-skill-bar {
@@ -522,23 +675,29 @@
     justify-content: space-between;
     font-size: 13px;
     font-weight: 600;
+    font-family: var(--font-body);
     color: var(--text);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+}
+
+.v2-skill-label span:last-child {
+    color: var(--brand);
+    font-size: 12px;
 }
 
 .v2-skill-track {
-    background: #ddd;
+    background: rgba(0,0,0,0.06);
     border-radius: 50px;
-    height: 8px;
+    height: 6px;
     overflow: hidden;
 }
 
 .v2-skill-fill {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, var(--brand), var(--brand-lt));
+    background: linear-gradient(90deg, var(--brand), var(--accent));
     border-radius: 50px;
-    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* About social */
@@ -548,19 +707,19 @@
     flex-wrap: wrap;
 }
 
-/* ────────────────────────────
+/* ────────────────────────────────────────
    SOCIAL BUTTONS
-──────────────────────────── */
+──────────────────────────────────────── */
 .v2-social-btn {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--brand-bg);
+    background: rgba(158,0,66,0.06);
     color: var(--brand);
-    border: 1.5px solid rgba(158,0,66,0.25);
+    border: 1.5px solid var(--border);
     font-size: 15px;
     transition: var(--transition);
     text-decoration: none;
@@ -570,13 +729,13 @@
     background: var(--brand);
     color: #fff;
     border-color: var(--brand);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(158,0,66,0.3);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: var(--shadow-brand);
 }
 
-/* ────────────────────────────
-   SERVICES v2
-──────────────────────────── */
+/* ────────────────────────────────────────
+   SERVICES PAGE
+──────────────────────────────────────── */
 .v2-services-grid {
     margin-bottom: 0;
 }
@@ -584,117 +743,136 @@
 .v2-service-card {
     background: var(--card-bg);
     border-radius: var(--radius);
-    padding: 32px 24px;
+    padding: 34px 26px;
     height: 100%;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    border: 1.5px solid #e8e8e8;
+    border: 1px solid var(--border-light);
 }
 
+/* Gradient top accent line */
 .v2-service-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--brand);
-    border-radius: 4px 0 0 4px;
-    transform: scaleY(0);
-    transition: transform 0.35s ease;
-    transform-origin: bottom;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand), var(--accent));
+    border-radius: var(--radius) var(--radius) 0 0;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
 }
 
 .v2-service-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
-    border-color: rgba(158,0,66,0.15);
+    border-color: rgba(158,0,66,0.1);
 }
 
 .v2-service-card:hover::before {
-    transform: scaleY(1);
+    transform: scaleX(1);
 }
 
 .v2-service-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--brand-bg);
+    width: 60px;
+    height: 60px;
+    background: rgba(158,0,66,0.07);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     transition: var(--transition);
 }
 
 .v2-service-icon i {
-    font-size: 22px;
+    font-size: 24px;
     color: var(--brand);
     transition: var(--transition);
 }
 
 .v2-service-card:hover .v2-service-icon {
     background: var(--brand);
+    transform: rotate(-5deg) scale(1.05);
+    box-shadow: var(--shadow-brand);
 }
 
 .v2-service-card:hover .v2-service-icon i {
     color: #fff;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 .v2-service-card h4 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 700;
     color: var(--text);
     margin-bottom: 10px;
 }
 
 .v2-service-card p {
+    font-family: var(--font-body);
     font-size: 13.5px;
     color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
+    line-height: 1.75;
+    margin-bottom: 18px;
 }
 
 .v2-service-tag {
     display: inline-block;
-    background: var(--brand-bg);
-    color: var(--brand);
+    background: rgba(212,149,106,0.1);
+    color: var(--accent);
     font-size: 11px;
     font-weight: 600;
-    padding: 3px 12px;
+    font-family: var(--font-body);
+    padding: 4px 13px;
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    border: 1px solid rgba(212,149,106,0.2);
 }
 
 /* Services CTA */
 .v2-services-cta {
     text-align: center;
-    margin-top: 50px;
-    padding: 40px;
-    background: var(--card-bg);
+    margin-top: 56px;
+    padding: 44px 40px;
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-tinted) 100%);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.v2-services-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(158,0,66,0.04) 0%, transparent 60%);
 }
 
 .v2-services-cta p {
-    font-size: 20px;
+    font-family: var(--font-body);
+    font-size: 18px;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 20px;
+    position: relative;
 }
 
-/* ────────────────────────────
-   CONTACT v2
-──────────────────────────── */
+/* ────────────────────────────────────────
+   CONTACT PAGE
+──────────────────────────────────────── */
 .v2-contact-info {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .v2-contact-card {
@@ -704,26 +882,27 @@
     background: var(--card-bg);
     border-radius: var(--radius);
     padding: 20px 22px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
-    border: 1.5px solid #eee;
+    border: 1px solid var(--border-light);
 }
 
 .v2-contact-card:hover {
-    transform: translateX(5px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(158,0,66,0.15);
+    transform: translateX(6px);
+    box-shadow: var(--shadow);
+    border-color: rgba(158,0,66,0.12);
 }
 
 .v2-contact-icon {
     width: 50px;
     height: 50px;
-    background: var(--brand);
+    background: linear-gradient(135deg, var(--brand), var(--brand-lt));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(158,0,66,0.25);
 }
 
 .v2-contact-icon i {
@@ -732,14 +911,15 @@
 }
 
 .v2-contact-card h5 {
+    font-family: var(--font-body);
     font-size: 14px;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 3px;
     margin: 0 0 3px 0;
 }
 
 .v2-contact-card p {
+    font-family: var(--font-body);
     font-size: 13px;
     color: var(--text-muted);
     margin: 0;
@@ -748,18 +928,19 @@
 .v2-contact-socials {
     background: var(--card-bg);
     border-radius: var(--radius);
-    padding: 20px 22px;
-    box-shadow: var(--shadow);
-    border: 1.5px solid #eee;
+    padding: 22px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
 }
 
 .v2-social-heading {
-    font-size: 12px;
+    font-family: var(--font-body);
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     color: var(--text-muted);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .v2-social-row {
@@ -771,30 +952,29 @@
 .v2-contact-form {
     background: var(--card-bg);
     border-radius: var(--radius);
-    padding: 36px 32px;
+    padding: 38px 34px;
     box-shadow: var(--shadow);
-    border: 1.5px solid #eee;
+    border: 1px solid var(--border-light);
     height: 100%;
 }
 
-/* FIXED: Remove floating label pattern — just clean inputs */
 .v2-form-group {
     margin-bottom: 16px;
 }
 
 .v2-form-group label {
-    display: none; /* hide labels, placeholder is enough */
+    display: none;
 }
 
 .v2-form-group input,
 .v2-form-group textarea {
     width: 100%;
-    background: #f7f7f7;
-    border: 1.5px solid #e0e0e0;
+    background: var(--bg);
+    border: 1.5px solid rgba(0,0,0,0.09);
     border-radius: var(--radius-sm);
     padding: 13px 16px;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
     color: var(--text);
     transition: var(--transition);
     outline: none;
@@ -804,15 +984,15 @@
 
 .v2-form-group input::placeholder,
 .v2-form-group textarea::placeholder {
-    color: #aaa;
-    font-size: 14px;
+    color: var(--text-muted);
+    font-size: 13.5px;
 }
 
 .v2-form-group input:focus,
 .v2-form-group textarea:focus {
     border-color: var(--brand);
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(158,0,66,0.08);
+    box-shadow: 0 0 0 3px rgba(158,0,66,0.07);
 }
 
 .v2-submit-btn {
@@ -820,7 +1000,7 @@
     justify-content: center;
     gap: 10px;
     padding: 14px 32px !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     border-radius: var(--radius-sm) !important;
     display: flex !important;
     align-items: center;
@@ -839,47 +1019,49 @@
     border-radius: var(--radius-sm);
 }
 
-/* ────────────────────────────
-   PORTFOLIO v2
-──────────────────────────── */
+/* ────────────────────────────────────────
+   PORTFOLIO PAGE
+──────────────────────────────────────── */
 .v2-portfolio-filters {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 40px;
+    gap: 10px;
+    margin-bottom: 44px;
 }
 
 .v2-portfolio-filters .btn-filter {
     background: var(--card-bg);
-    border: 1.5px solid #e0e0e0;
+    border: 1.5px solid var(--border-light);
     color: var(--text-muted);
-    padding: 8px 20px;
+    padding: 9px 22px;
     border-radius: 50px;
-    font-size: 13px;
+    font-family: var(--font-body);
+    font-size: 12.5px;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
     outline: none;
+    letter-spacing: 0.3px;
 }
 
 .v2-portfolio-filters .btn-filter:hover {
     border-color: var(--brand);
     color: var(--brand);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(158,0,66,0.1);
+    box-shadow: 0 4px 14px rgba(158,0,66,0.1);
 }
 
 .v2-portfolio-filters .btn-filter.active {
     background: var(--brand);
     color: #fff;
     border-color: var(--brand);
-    box-shadow: 0 6px 16px rgba(158,0,66,0.25);
+    box-shadow: var(--shadow-brand);
 }
 
-/* ────────────────────────────
+/* ────────────────────────────────────────
    RESPONSIVE BREAKPOINTS
-──────────────────────────── */
+──────────────────────────────────────── */
 @media (max-width: 1199px) {
     .v2-profile-wrapper .banner-profile {
         max-width: 300px;
@@ -926,12 +1108,16 @@
     }
 
     .v2-contact-form {
-        padding: 24px 20px;
+        padding: 26px 20px;
         margin-top: 20px;
     }
 
     .v2-about-text {
         padding-left: 0 !important;
+    }
+
+    .v2-exp-badge {
+        right: calc(50% - 200px);
     }
 }
 
@@ -939,19 +1125,21 @@
     .banner,
     .v2-about,
     .v2-services,
+    .v2-portfolio,
     .v2-contact {
-        padding-top: 32px;
-        padding-bottom: 40px;
+        padding-top: 36px;
+        padding-bottom: 44px;
     }
 
     .v2-name {
-        font-size: 34px;
+        font-size: 38px;
     }
 
     .v2-tagline {
-        font-size: 19px;
+        font-size: 17px;
     }
 
+    /* Buttons — one row on mobile */
     .v2-hero-btns {
         flex-direction: row;
         align-items: center;
@@ -964,7 +1152,7 @@
         flex: 1;
         justify-content: center;
         padding: 12px 10px !important;
-        font-size: 13px !important;
+        font-size: 12.5px !important;
         white-space: nowrap;
     }
 
@@ -977,11 +1165,11 @@
     }
 
     .v2-stat-num {
-        font-size: 22px;
+        font-size: 26px;
     }
 
     .v2-stat-label {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .v2-stat-divider {
@@ -992,45 +1180,68 @@
         display: none;
     }
 
+    .v2-profile-wrapper::before {
+        display: none;
+    }
+
     .v2-profile-wrapper .banner-profile {
         max-width: 250px;
     }
 
-    .v2-about-profile img {
-        max-width: 280px;
+    .v2-page-header {
+        margin-bottom: 36px;
+    }
+
+    .v2-page-header h2 {
+        font-size: 32px;
     }
 
     .v2-exp-badge {
-        right: calc(50% - 120px);
-        bottom: 10px;
+        right: calc(50% - 180px);
     }
 
     .v2-contact-form {
-        padding: 20px 16px;
+        padding: 24px 18px;
     }
 
     .v2-services-cta {
-        padding: 28px 20px;
+        padding: 32px 24px;
     }
 
-    .v2-services-cta p {
-        font-size: 16px;
+    .v2-info-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 480px) {
-    .v2-profile-wrapper .banner-profile {
-        max-width: 220px;
+    .v2-name {
+        font-size: 32px;
     }
 
-    .v2-profile-badge {
-        font-size: 11px;
-        padding: 6px 12px;
+    .v2-hero-btns {
+        gap: 8px;
+    }
+
+    .v2-btn-primary,
+    .v2-btn-outline {
+        padding: 11px 8px !important;
+        font-size: 12px !important;
+    }
+
+    .v2-stat {
+        padding: 0 8px;
+    }
+
+    .v2-info-grid {
+        grid-template-columns: 1fr;
     }
 
     .v2-exp-badge {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
+        right: calc(50% - 160px);
+        padding: 10px 14px;
+    }
+
+    .v2-exp-badge strong {
+        font-size: 22px;
     }
 }
